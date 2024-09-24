@@ -61,10 +61,9 @@ def hits_by_hour(data):
         hour = datetime.strptime(row[1], '%Y-%m-%d %H:%M:%S').hour
         # Increment the counter for that hour
         hours[hour] += 1
-    # Loop through all 24 hours and print the number of hits for each hour, excluding 0 hits
+    # Loop through all 24 hours and print the number of hits for each hour
     for hour, count in enumerate(hours):
-        if count > 0:  # Only print if there are hits
-            print(f"Hour {hour:02d} has {count} hits")
+        print(f"Hour {hour:02d} has {count} hits")
 
 # Main function to control the flow of the program
 def main(url):
