@@ -61,8 +61,12 @@ def hits_by_hour(data):
         hour = datetime.strptime(row[1], '%Y-%m-%d %H:%M:%S').hour
         # Increment the counter for that hour
         hours[hour] += 1
-    # Loop through all 24 hours and print the number of hits for each hour
-    for hour, count in enumerate(hours):
+    
+    # Create a list of tuples (hour, count) and sort by count in descending order
+    sorted_hours = sorted(enumerate(hours), key=lambda x: x[1], reverse=True)
+    
+    # Loop through the sorted hours and print the number of hits for each hour
+    for hour, count in sorted_hours:
         print(f"Hour {hour:02d} has {count} hits")
 
 # Main function to control the flow of the program
